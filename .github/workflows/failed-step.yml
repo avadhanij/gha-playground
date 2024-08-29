@@ -12,4 +12,5 @@ jobs:
       - name: Failed step
         run: exit(1)
       - name: Next step
+        if: (success() || failure())
         run: echo "Ran the step after failed step"
