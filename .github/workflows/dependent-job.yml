@@ -7,16 +7,16 @@ jobs:
     first-job:
         runs-on: ubuntu-latest
         outputs:
-            output-bool: ${{ steps.output-bool.outputs }}
+            output-bool: ${{ steps.output-bool.outputs.bool-value }}
         steps:
             - name: Print Hello World
               run: echo "Hello, World!"
             - name: Output bool
               id: output-bool
-              run: echo "false"
+              run: echo "bool-value=false" >> $GITHUB_OUTPUT
             - name: Next step
               if: (success() || failure())
-              run: echo "Ran the step after failed step"
+              run: echo "Just going to run anyway!"
             
 
     second-job:
