@@ -1,0 +1,15 @@
+name: Failed Step Workflow
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  failed-step-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello World
+        run: echo "Hello, World!"
+      - name: Failed step
+        run: exit(1)
+      - name: Next step
+        run: echo "Ran the step after failed step"
