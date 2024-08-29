@@ -1,0 +1,28 @@
+name: Dependent job behavior workflow
+
+on: 
+  workflow_dispatch:
+
+jobs:
+    first-job:
+        runs-on: ubuntu-latest
+        outputs:
+            output-bool: ${{ steps.output-bool.outputs }}
+        steps:
+            - name: Print Hello World
+              run: echo "Hello, World!"
+            - name: Output bool
+              id: output-bool
+              run: echo "false"
+            - name: Next step
+              if: (success() || failure())
+              run: echo "Ran the step after failed step"
+            
+
+    second-job:
+        runs-on: ubuntu-latest
+        needs: [first-job]
+        if: ${{ needs.first-job.outputs.output-bool == 'false' }}
+        steps:
+            - name: Print Hello World Again
+              run: echo "Hello, World Again!"
