@@ -13,11 +13,11 @@ jobs:
               run: echo "Hello, World!"
             - name: Output bool
               id: output-bool
-              run: echo "bool-value=false" >> $GITHUB_OUTPUT
+              # run: echo "bool-value=false" >> $GITHUB_OUTPUT
+              run: echo "bool-value=true" >> $GITHUB_OUTPUT
             - name: Next step
               if: (success() || failure())
               run: echo "Just going to run anyway!"
-            
 
     second-job:
         runs-on: ubuntu-latest
