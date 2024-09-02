@@ -1,0 +1,28 @@
+name: Example of a workflow that calls another workflow
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step
+        run: echo "This is the first step"
+
+      - name: Trigger and wait for another workflow
+        uses: henryjw/trigger-workflow-and-wait@ef3ce75d2cc6e31faa418b5516e80b98e3adb006
+        with:
+          owner: avadhanij
+          repo: gha-playground
+          github_token: ${{ secrets.GHA_PAT }}
+          workflow_file_name: called-workflow.yml
+          propagate_failure: true
+          trigger_workflow: true
+          wait_workflow: true
+
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print back message
+        run: echo "Hello, we are back!"
