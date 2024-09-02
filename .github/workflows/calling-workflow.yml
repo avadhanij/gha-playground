@@ -21,8 +21,12 @@ jobs:
           trigger_workflow: true
           wait_workflow: true
 
+      - name: Waiting step
+        run: echo "This step will only run after the previous step is complete!"
+
   second-job:
     runs-on: ubuntu-latest
+    needs: [first-job]
     steps:
       - name: Print back message
         run: echo "Hello, we are back!"
