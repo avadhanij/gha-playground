@@ -4,5 +4,15 @@
     "sourceRoot": "base-image/",
     "tags": [],
     "targets": {
+        "container": {
+            "executor": "@nx-tools/nx-container:build",
+            "options": {
+                "push": true,
+                "tags": [
+                "avadhanij/base-image:latest",
+                "avadhanij/base-image:3.9"
+                ]
+            }
+        }
     }
 }
