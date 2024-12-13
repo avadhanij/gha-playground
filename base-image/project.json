@@ -1,0 +1,8 @@
+{
+    "name": "base-image",
+    "projectType": "application",
+    "sourceRoot": "base-image/",
+    "tags": [],
+    "targets": {
+    }
+}
