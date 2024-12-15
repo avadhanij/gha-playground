@@ -15,8 +15,8 @@ jobs:
           filter: tree:0
       - name: Install pipx
         run: |
-          apt update
-          apt install -y pipx python3-venv
+          sudo apt update
+          sudo apt install -y pipx python3-venv
           pipx ensurepath
       - name: Install poetry and ruff # https://github.com/actions/setup-python/blob/main/docs/advanced-usage.md#caching-packages
         run: pipx install poetry
