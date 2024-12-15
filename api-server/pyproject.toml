@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "api-server"
+version = "0.1.0"
+description = "A sample FastAPI server app"
+authors = ["Avadhani Jonnavithula <avadhanij@outlook.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.13"
+pygresql = "^6.1.0"
+fastapi = "^0.115.6"
+uvicorn = "^0.33.0"
+
+[tool.poetry.scripts]
+start = "api_server.main:start"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
