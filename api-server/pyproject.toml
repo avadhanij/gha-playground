@@ -1,16 +1,37 @@
+[tool.coverage.run]
+branch = true
+source = [ "api_server" ]
+
+[tool.coverage.report]
+exclude_lines = ['if TYPE_CHECKING:']
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-report html:'../coverage/api-server/html' --cov-report xml:'../coverage/api-server/coverage.xml' --html='../reports/api-server/unittests/html/index.html' --junitxml='../reports/api-server/unittests/junit.xml'"
+
 [tool.poetry]
 name = "api-server"
-version = "0.1.0"
-description = "A sample FastAPI server app"
+version = "1.0.0"
+description = "A simple FastAPI server app"
 authors = ["Avadhani Jonnavithula <avadhanij@outlook.com>"]
-readme = "README.md"
-package-mode = false
+license = 'Proprietary'
+readme = 'README.md'
+
+  [[tool.poetry.packages]]
+  include = "api_server"
 
 [tool.poetry.dependencies]
-python = "^3.13"
-pygresql = "^6.1.0"
+python = ">=3.13.0"
 fastapi = "^0.115.6"
-uvicorn = "^0.33.0"
+uvicorn = "^0.34.0"
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = "2.3.1"
+flake8 = "7.1.1"
+pytest = "8.3.4"
+pytest-sugar = "1.0.0"
+pytest-cov = "6.0.0"
+pytest-html = "4.1.1"
 
 [tool.poetry.scripts]
 start = "api_server.main:start"
