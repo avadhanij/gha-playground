@@ -15,7 +15,7 @@ on:
     branches:
       - main
     paths:
-      - 'api-server/**/*'
+      - 'dummy-service/**/*'
       - 'lib/**/*'
 
 concurrency:
