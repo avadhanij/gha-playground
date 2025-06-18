@@ -3,4 +3,4 @@
 
 def hello():
     """Return a friendly greeting."""
-    return "Hello api-server"
+    return "Hello from api-server"
